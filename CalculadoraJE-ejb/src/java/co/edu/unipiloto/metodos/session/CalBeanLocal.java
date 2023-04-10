@@ -15,5 +15,14 @@ import javax.ejb.Local;
 public interface CalBeanLocal {
 
     Integer suma(int val1, int val2);
-    
+
+    Integer resta(int val1, int val2);
+
+    Integer multiplicacion(int val1, int val2);
+
+    Integer modulo(int val1, int val2);
+
+    Double division(double val1, double val2);
+
+    Double raiz(double val1);
 }

@@ -17,7 +17,35 @@ public class CalBean implements CalBeanLocal {
     @Override
     public Integer suma(int val1, int val2) {
         return val1 + val2;
-        
+    }
+    
+    
+    @Override
+    public Integer resta(int val1, int val2) {
+        return val1 - val2;
+    }
+
+    @Override
+    public Integer multiplicacion(int val1, int val2) {
+        return val1 * val2;
+    }
+    
+
+    @Override
+    public Integer modulo(int val1, int val2) {
+        return val1 % val2;
+    }
+
+    
+
+    @Override
+    public Double division(double val1, double val2) {
+        return val1 / val2;
+    }
+
+    @Override
+    public Double raiz(double val1) {
+        return Math.sqrt(val1);
     }
 
     // Add business logic below. (Right-click in editor and choose
