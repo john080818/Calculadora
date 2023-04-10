@@ -6,16 +6,23 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Calculadora</title>
+        <title>Cal Operaciones</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div>
             <form name="calculadora" action="./CalServlet">
-              <input type="text" name="val1" value="" />
-              <input type="text" name="val2" value=""  />
-              <input type="submit" value="calcular" />
+                <label for="value1">Digite el primer valor</label>
+                <input type="text" name="val1"/>
+                <label for="value1">Digite el segundo valor</label>
+                <input type="text" name="val2"/>
+                <input type="submit" name="action" value="Sumar" />                
+                <input type="submit" name="action" value="Restar" />
+                <input type="submit" name="action" value="Multiplicar" />
+                <input type="submit" name="action" value="Dividir" />
+                <input type="submit" name="action" value="Modulo" />
+                <input type="submit" name="action" value="R_cuadrada" />
             </form>
         </div>
     </body>

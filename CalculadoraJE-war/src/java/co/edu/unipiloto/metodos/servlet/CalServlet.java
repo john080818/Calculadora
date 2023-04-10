@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -38,25 +38,56 @@ public class CalServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println(request.getParameter("val1"));
-        System.out.println(request.getParameter("val2"));
-        System.out.println("hola");
-          int val1;
-          int val2;
-          val1 = Integer.parseInt(request.getParameter("val1"));
-          val2 = Integer.parseInt(request.getParameter("val2"));
-          
-          
+int val1;
+        try {
+            val1 = Integer.parseInt(request.getParameter("value1"));
+        } catch (Exception e) {
+            val1 = -1;
+        }
         
+        int val2;
+        try {
+            val2 = Integer.parseInt(request.getParameter("value2"));
+        } catch (Exception e) {
+            val2 = -1;
+        }
+        
+
+        String action = request.getParameter("action");
+
+        double resultado = 0;
+        switch (action) {
+            case "Sumar":
+                resultado = calBean.suma(val1, val2);
+                break;
+            case "Restar":
+                resultado = calBean.resta(val1, val2);
+                break;
+            case "Multiplicar":
+                resultado = calBean.multiplicacion(val1, val2);
+                break;
+            case "Dividir":
+                resultado = calBean.division(val1, val2);
+                break;
+            case "Modulo":
+                resultado = calBean.modulo(val1, val2);
+                break;
+            case "Raiz":
+                resultado = calBean.raiz(val1);
+                break;
+        }
+        
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Calculadora</title>");            
+            out.println("<title>Servlet CalServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> La suma es " + calBean.suma(val1, val2) + "</h1>");
+            out.println("<h1>Servlet CalServlet at " + request.getContextPath() + "</h1>");
+            out.println("<p>La respuesta es: " + resultado + "</p>");
             out.println("</body>");
             out.println("</html>");
         }
